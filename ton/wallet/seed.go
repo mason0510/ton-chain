@@ -7,6 +7,7 @@ import (
 	"crypto/sha512"
 	"errors"
 	"fmt"
+	"github.com/xssnick/tonutils-go/address"
 	"math/big"
 	"strings"
 
@@ -2154,4 +2155,14 @@ var words = map[string]bool{
 	"zero":     true,
 	"zone":     true,
 	"zoo":      true,
+}
+
+func (w *Wallet) GetPrivateKey() ed25519.PrivateKey {
+	return w.key
+}
+
+func (w *Wallet) getAddress(publicKey ed25519.PublicKey) (*address.Address, error) {
+	// Implementation depends on the specific wallet version
+	// This is a placeholder and needs to be implemented based on TON's address generation rules
+	return nil, errors.New("address generation not implemented")
 }
